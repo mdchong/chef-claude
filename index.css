@@ -28,3 +28,40 @@ body {
         height: auto;
     }
 }
+
+main {
+    padding-top: 2rem;
+}
+
+.addIngredientForm {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+
+    & input {
+        border-radius: 6px;
+        border: 1px solid #D1D5D8;
+        padding: 0.75rem 1rem;
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+        flex-grow: 1;
+        max-width: 25rem;
+    }
+
+    & button {
+        font-family: 'Inter', sans-serif;
+        border-radius: 6px;
+        border: none;
+        background-color: #141413;
+        color: #FAFAF8;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+
+    & button::before {
+        content: "+";
+        margin-right: 0.25rem;
+    }
+}
