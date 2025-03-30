@@ -1,5 +1,7 @@
+import React from 'react'
+
 export default function Main() {
-    const ingredients = ["Chicken", "Oregano", "Tomatoes"]
+    const [ingredients, setIngredients] = React.useState(["Chicken", "Oregano", "Tomatoes"])
 
     const ingredientsListItems = ingredients.map(ingredient => (
         <li key={ingredient}>{ingredient}</li>
@@ -9,7 +11,11 @@ export default function Main() {
         event.preventDefault();
         const formData = new FormData(event.currentTarget)
         const newIngredient = formData.get("ingredient"); // this is why you need name for input!!
-        
+
+        setIngredients(prev => [
+            ...prev, 
+            newIngredient
+        ])
     }
 
     console.log(ingredients)
