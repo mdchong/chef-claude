@@ -7,9 +7,7 @@ export default function Main() {
         <li key={ingredient}>{ingredient}</li>
     ))
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        const formData = new FormData(event.currentTarget)
+    function ingredientForm (formData) {
         const newIngredient = formData.get("ingredient"); // this is why you need name for input!!
 
         setIngredients(prev => [
@@ -22,7 +20,7 @@ export default function Main() {
 
     return (
         <main>
-            <form onSubmit={handleSubmit} className="addIngredientForm">
+            <form action={ingredientForm} className="addIngredientForm">
                 <input 
                     type="text" 
                     area-label="Add ingredient"
