@@ -17,7 +17,7 @@ export default function Main() {
         ])
     }
 
-    {/* Get Recipe */}
+    /* Get Recipe */
     const [recipeShown, setRecipeShown] = React.useState(false)
 
     function toggleRecipeShown() {
