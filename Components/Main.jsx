@@ -1,10 +1,11 @@
 import React from 'react'
 import IngredientsList from './IngredientsList';
 import ClaudeRecipe from './ClaudeRecipe';
+import { getRecipeFromClaude } from '../ai';  
 
 export default function Main() {
     // For Ingredients
-    const [ingredients, setIngredients] = React.useState([])
+    const [ingredients, setIngredients] = React.useState(["meatballs", "cheese", "pasta", "pepper"])
 
     function ingredientForm (formData) {
         const newIngredient = formData.get("ingredient"); // this is why you need name for input!!
@@ -18,8 +19,9 @@ export default function Main() {
     // Get Recipe
     const [recipeShown, setRecipeShown] = React.useState(false)
 
-    function toggleRecipeShown() {
-        setRecipeShown(prevShown => !prevShown)
+    async function getRecipe() {
+        let generatedRecipe = await getRecipeFromClaude(ingredients)
+        console.log(generatedRecipe)
     }
 
     return (
@@ -37,7 +39,7 @@ export default function Main() {
             {ingredients.length > 0 && 
                 <IngredientsList 
                     ingredients={ingredients}
-                    toggleRecipeShown={toggleRecipeShown}
+                    getRecipe={getRecipe}
                 />
             }
 
