@@ -1,6 +1,6 @@
 export default function ClaudeRecipe(props) {
     return (
-        <section>
+        <section className="suggested-recipe-container">  
             {props.recipeShown}
         </section>
     )
